@@ -52,6 +52,8 @@
                                                                         <option value="SCIENCE">SCIENCE</option>
                                                                         <option value="HOME ECONOMICS">HOME ECONOMICS</option>
                                                                         <option value="AGRICULTURAL SCIENCE">AGRICULTURAL SCIENCE</option>
+                                                                        <option value="VISUAL ARTS">VISUAL ARTS</option>
+                                                                        <option value="BUSINESS">BUSINESS</option>
                                                                     </select>
                                         @error('main_course')
                                             <span class="text-danger">{{ $message }}</span>

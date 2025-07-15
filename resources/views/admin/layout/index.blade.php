@@ -26,7 +26,7 @@
             background-color: #ffc107 !important;
         }
 
-        .card:hover .card-footer.bg-c-red {
+        .card:hover .card-footer. {
             background-color: #dc3545 !important;
         }
 
@@ -50,7 +50,7 @@
             <div class="row align-items-center">
                 <div class="col-md-12">
                     <div class="page-header-title">
-                       <h5 class="m-b-10">Analytical</h5>
+                       <h5 class="m-b-10">DASHBOARD</h5>
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a>
@@ -91,7 +91,7 @@
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h4 class="text-c-green">{{ $qualified_bsc_midwifery}}</h4>
+                            <h4 class="text-c-green">{{ $army}}</h4>
                             <h6 class="text-muted m-b-0">TOTAL</h6>
                         </div>
                         <div class="col-4 text-right">
@@ -103,21 +103,22 @@
                 <div class="card-footer bg-c-white">
                     <div class="row align-items-center">
                         <div class="col-9">
-                            <p class="text-black m-b-0"><b><i>BSC MIDWIFERY</i></b></p>
+                            <p class="text-black m-b-0"><b><i>ARMY</i></b></p>
                         </div>
                         <div class="col-3 text-right">
-                            <i class="feather icon-trending-up text-white f-16"></i>
+                            <i class="feather icon-trending-up text-dark f-16"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="col-lg-3 col-md-6">
             <div class="card">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h4 class="text-c-green">{{ $qualified_bsc_nursing }}</h4>
+                            <h4 class="text-c-green">{{ $navy }}</h4>
                             <h6 class="text-muted m-b-0">TOTAL</h6>
                         </div>
                         <div class="col-4 text-right">
@@ -129,15 +130,43 @@
                 <div class="card-footer bg-c-white">
                     <div class="row align-items-center">
                         <div class="col-9">
-                            <p class="text-black m-b-0"><b><i>BSC NURSING</i></b></p>
+                            <p class="text-black m-b-0"><b><i>NAVY</i></b></p>
                         </div>
                         <div class="col-3 text-right">
-                            <i class="feather icon-trending-up text-white f-16"></i>
+                            <i class="feather icon-trending-up text-dark f-16"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+         <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h4 class="text-c-green">{{ $airforce }}</h4>
+                            <h6 class="text-muted m-b-0">TOTAL</h6>
+                        </div>
+                        <div class="col-4 text-right">
+                          <i class="feather icon-user f-28"></i>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-c-white">
+                    <div class="row align-items-center">
+                        <div class="col-9">
+                            <p class="text-black m-b-0"><b><i>AIRFORCE</i></b></p>
+                        </div>
+                        <div class="col-3 text-right">
+                            <i class="feather icon-trending-up text-dark f-16"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class="col-lg-3 col-md-6">
             <div class="card">
@@ -166,10 +195,10 @@
 
 
         <div class="col-xl-3 col-md-12">
-            <div class="card bg-c-yellow text-white widget-visitor-card">
+            <div class="card bg-c-  widget-visitor-card">
                 <div class="card-body text-center">
-                    <h2 class="text-white">{{ $total_qualified_courses }}</h2>
-                    <h6 class="text-white">TOTAL QUALIFIED APPLICANTS</h6>
+                    <h2 class="text-dark">{{ $total_qualified_applicant }}</h2>
+                    <h6 class="text-dark">TOTAL QUALIFIED APPLICANTS</h6>
                     <i class="feather icon-file-text"></i>
                 </div>
             </div>
@@ -178,31 +207,142 @@
         </div>
 
         <div class="col-xl-3 col-md-12">
-            <div class="card bg-c-red text-white widget-visitor-card">
+            <div class="card  text-dark widget-visitor-card">
                 <div class="card-body text-center">
-                    <h2 class="text-white">{{ $total_disqualified_courses }}</h2>
-                    <h6 class="text-white">TOTAL DISQUALIFIED APPICANTS</h6>
+                    <h2 class="text-dark">{{ $total_disqualified_applicant }}</h2>
+                    <h6 class="text-dark">TOTAL DISQUALIFIED APPLICANTS</h6>
                     <i class="feather icon-award"></i>
                 </div>
             </div>
         </div>
+
+
         <div class="col-xl-3 col-md-12">
-            <div class="card bg-c-yellow text-white widget-visitor-card">
+            <div class="card  text-dark widget-visitor-card">
                 <div class="card-body text-center">
-                    <h2 class="text-white">{{ $top_up }}</h2>
-                    <h6 class="text-white">TOTAL TOP UP</h6>
+                    <h2 class="text-dark">{{ $tradesment }}</h2>
+                    <h6 class="text-dark">TOTAL TRADESMEN</h6>
                     <i class="feather icon-file-text"></i>
                 </div>
             </div>
-
-
         </div>
 
+
         <div class="col-xl-3 col-md-12">
-            <div class="card bg-c-red text-white widget-visitor-card">
+            <div class="card  text-dark widget-visitor-card">
                 <div class="card-body text-center">
-                    <h2 class="text-white">{{ $regular }}</h2>
-                    <h6 class="text-white">TOTAL REGULAR</h6>
+                    <h2 class="text-dark">{{ $nontradesment }}</h2>
+                    <h6 class="text-dark">TOTAL NON-TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+
+
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $tradesmen_army }}</h2>
+                    <h6 class="text-dark">TOTAL ARMY-TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $tradesmen_navy }}</h2>
+                    <h6 class="text-dark">TOTAL NAVY TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $tradesmen_airforce }}</h2>
+                    <h6 class="text-dark">TOTAL AIRFORCE TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $disqualified_tradesmen_army }}</h2>
+                    <h6 class="text-dark">TOTAL DISQUALIFIED ARMY TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $disqualified_tradesmen_navy }}</h2>
+                    <h6 class="text-dark">TOTAL DISQUALIFIED NAVY TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $disqualified_tradesmen_airforce }}</h2>
+                    <h6 class="text-dark">TOTAL DISQUALIFIED AIRFORCE TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $non_tradesmen_army }}</h2>
+                    <h6 class="text-dark">TOTAL ARMY NON-TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $non_tradesmen_navy }}</h2>
+                    <h6 class="text-dark">TOTAL NAVY NON-TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $non_tradesmen_airforce }}</h2>
+                    <h6 class="text-dark">TOTAL AIRFORCE NON-TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $disqualified_non_tradesmen_army }}</h2>
+                    <h6 class="text-dark">TOTAL DISQUALIFIED ARMY NON-TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $disqualified_non_tradesmen_navy }}</h2>
+                    <h6 class="text-dark">TOTAL DISQUALIFIED NAVY NON-TRADESMEN</h6>
+                    <i class="feather icon-award"></i>
+                </div>
+            </div>
+        </div>
+          <div class="col-xl-3 col-md-12">
+            <div class="card  text-dark widget-visitor-card">
+                <div class="card-body text-center">
+                    <h2 class="text-dark">{{ $disqualified_non_tradesmen_airforce }}</h2>
+                    <h6 class="text-dark">TOTAL DISQUALIFIED AIRFORCE NON-TRADESMEN</h6>
                     <i class="feather icon-award"></i>
                 </div>
             </div>
@@ -229,7 +369,7 @@
                                 <p class="text-black m-b-0">View Details</p>
                             </div>
                             <div class="col-3 text-right">
-                                <i class="feather icon-trending-up text-white f-16"></i>
+                                <i class="feather icon-trending-up text-dark f-16"></i>
                             </div>
                         </div>
                     </div>
@@ -258,7 +398,7 @@
                                 <p class="text-black m-b-0">View Details</p>
                             </div>
                             <div class="col-3 text-right">
-                                <i class="feather icon-trending-up text-white f-16"></i>
+                                <i class="feather icon-trending-up text-dark f-16"></i>
                             </div>
                         </div>
                     </div>
@@ -287,7 +427,7 @@
                                 <p class="text-black m-b-0">View Details</p>
                             </div>
                             <div class="col-3 text-right">
-                                <i class="feather icon-trending-up text-white f-16"></i>
+                                <i class="feather icon-trending-up text-dark f-16"></i>
                             </div>
                         </div>
                     </div>

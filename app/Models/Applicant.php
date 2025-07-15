@@ -101,7 +101,7 @@ class Applicant extends Model implements Auditable
 
     public function branches()
     {
-        return $this->belongsTo(Branch::class, 'branch', 'id');
+        return $this->belongsTo(Branch::class, 'branch_id', 'id');
     }
 
     public function courses()

@@ -25,39 +25,37 @@ class DashboardController extends Controller
 
     public function index()
     {
-
-
         // Count qualified applicants per course
-        $qualified_bsc_nursing = Applicant::where('qualification', 'QUALIFIED')
-            ->where('cause_offers', 'BSC NURSING')
+        $tradesment = Applicant::where('qualification', 'QUALIFIED')
+            ->where('trade_type', 'TRADESMEN')
             ->count();
 
-        $qualified_bsc_midwifery = Applicant::where('qualification', 'QUALIFIED')
-            ->where('cause_offers', 'BSC MIDWIFERY')
+        $qualified_non_tradesmen = Applicant::where('qualification', 'QUALIFIED')
+            ->where('trade_type', 'NON-TRADESMEN')
             ->count();
         // Total sum of qualified for both courses
-        $total_qualified_courses = $qualified_bsc_nursing + $qualified_bsc_midwifery;
+        $total_qualified_applicant = $tradesment + $qualified_non_tradesmen;
         // Count disqualified applicants per course
-        $disqualified_bsc_nursing = Applicant::where('qualification', 'DISQUALIFIED')
-            ->where('cause_offers', 'BSC NURSING')
+        $nontradesment = Applicant::where('qualification', 'DISQUALIFIED')
+            ->where('trade_type', 'TRADESMEN')
             ->count();
-        $disqualified_bsc_midwifery = Applicant::where('qualification', 'DISQUALIFIED')
-            ->where('cause_offers', 'BSC MIDWIFERY')
+        $disqualified_non_tradesmen = Applicant::where('qualification', 'DISQUALIFIED')
+            ->where('trade_type', 'NON-TRADESMEN')
             ->count();
         // Total sum of disqualified for both courses
-        $total_disqualified_courses = $disqualified_bsc_nursing + $disqualified_bsc_midwifery;
+        $total_disqualified_applicant = $nontradesment + $disqualified_non_tradesmen;
         // Count applicants who have not finished their application (qualification is NULL or empty)
         $incomplete_applications = Applicant::whereNull('qualification')
             ->orWhere('qualification', '')
             ->count();
         // Total sum of all qualified + disqualified + incomplete applications
-        $total_applicants = $total_qualified_courses + $total_disqualified_courses + $incomplete_applications;
+        $total_applicants = $total_qualified_applicant + $total_disqualified_applicant + $incomplete_applications;
         // Chart Data
         $chartData = [
-            'labels' => ['BSC MIDWIFERY', 'BSC NURSING'],
+            'labels' => ['NON-TRADESMEN', 'TRADESMEN'],
             'datasets' => [
                 [
-                    'data' => [$qualified_bsc_midwifery, $qualified_bsc_nursing],
+                    'data' => [$qualified_non_tradesmen, $tradesment],
                     'backgroundColor' => ['#FF6384', '#36A2EB'],
                 ],
             ],
@@ -88,20 +86,112 @@ class DashboardController extends Controller
             ->whereYear('created_at', $year)
             ->count();
 
-        // Count qualified applicants per course
-        $regular = Applicant::where('entrance_type', 'REGULAR')->whereYear('created_at', $year)
-            ->count();
-        // Count qualified applicants per course
-        $top_up = Applicant::where('entrance_type', 'TOP UP')->whereYear('created_at', $year)
+        // Count qualified ARMY applicants
+        $army = Applicant::where('arm_of_service', 'ARMY')
+            ->whereYear('created_at', $year)
+            ->where('final_checked', 'YES')
             ->count();
 
+        // Count qualified NAVY applicants
+        $navy = Applicant::where('arm_of_service', 'NAVY')
+            ->whereYear('created_at', $year)
+            ->where('final_checked', 'YES')
+            ->count();
+
+        // Count qualified AIRFORCE applicants
+        $airforce = Applicant::where('arm_of_service', 'AIRFORCE')
+            ->whereYear('created_at', $year)
+            ->where('final_checked', 'YES')
+            ->count();
+
+
+
+
+        // QUALIFIED - TRADESMEN
+        $tradesmen_army = Applicant::where('qualification', 'QUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'TRADESMEN')
+            ->where('arm_of_service', 'ARMY')
+            ->count();
+
+        $tradesmen_navy = Applicant::where('qualification', 'QUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'TRADESMEN')
+            ->where('arm_of_service', 'NAVY')
+            ->count();
+
+        $tradesmen_airforce = Applicant::where('qualification', 'QUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'TRADESMEN')
+            ->where('arm_of_service', 'AIRFORCE')
+            ->count();
+
+        // DISQUALIFIED - TRADESMEN
+        $disqualified_tradesmen_army = Applicant::where('qualification', 'DISQUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'TRADESMEN')
+            ->where('arm_of_service', 'ARMY')
+            ->count();
+
+        $disqualified_tradesmen_navy = Applicant::where('qualification', 'DISQUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'TRADESMEN')
+            ->where('arm_of_service', 'NAVY')
+            ->count();
+
+        $disqualified_tradesmen_airforce = Applicant::where('qualification', 'DISQUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'TRADESMEN')
+            ->where('arm_of_service', 'AIRFORCE')
+            ->count();
+
+        // QUALIFIED - NON-TRADESMEN
+        $non_tradesmen_army = Applicant::where('qualification', 'QUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'NON-TRADESMEN')
+            ->where('arm_of_service', 'ARMY')
+            ->count();
+
+        $non_tradesmen_navy = Applicant::where('qualification', 'QUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'NON-TRADESMEN')
+            ->where('arm_of_service', 'NAVY')
+            ->count();
+
+        $non_tradesmen_airforce = Applicant::where('qualification', 'QUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'NON-TRADESMEN')
+            ->where('arm_of_service', 'AIRFORCE')
+            ->count();
+
+        // DISQUALIFIED - NON-TRADESMEN
+        $disqualified_non_tradesmen_army = Applicant::where('qualification', 'DISQUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'NON-TRADESMEN')
+            ->where('arm_of_service', 'ARMY')
+            ->count();
+
+        $disqualified_non_tradesmen_navy = Applicant::where('qualification', 'DISQUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'NON-TRADESMEN')
+            ->where('arm_of_service', 'NAVY')
+            ->count();
+
+        $disqualified_non_tradesmen_airforce = Applicant::where('qualification', 'DISQUALIFIED')
+            ->where('final_checked', 'YES')
+            ->where('trade_type', 'NON-TRADESMEN')
+            ->where('arm_of_service', 'AIRFORCE')
+            ->count();
+
+
+
         return view('admin.layout.index', compact(
-            'qualified_bsc_nursing',
-            'qualified_bsc_midwifery',
-            'total_qualified_courses',
-            'disqualified_bsc_nursing',
-            'disqualified_bsc_midwifery',
-            'total_disqualified_courses',
+            'tradesment',
+            'qualified_non_tradesmen',
+            'total_qualified_applicant',
+            'nontradesment',
+            'disqualified_non_tradesmen',
+            'total_disqualified_applicant',
             'total_applicants',
             'incomplete_applications',
             'chartData',
@@ -111,8 +201,23 @@ class DashboardController extends Controller
             'qualified_aptitude',
             'disqualified_results_verification',
             'qualified_results_verification',
-            'regular',
-            'top_up'
+            'army',
+            'navy',
+            'airforce',
+
+            'tradesmen_army',
+            'tradesmen_navy',
+            'tradesmen_airforce',
+            'disqualified_tradesmen_army',
+            'disqualified_tradesmen_navy',
+            'disqualified_tradesmen_airforce',
+            'non_tradesmen_army',
+            'non_tradesmen_navy',
+            'non_tradesmen_airforce',
+            'disqualified_non_tradesmen_army',
+            'disqualified_non_tradesmen_navy',
+            'disqualified_non_tradesmen_airforce',
+            'non_tradesmen_army'
         ));
     }
 }

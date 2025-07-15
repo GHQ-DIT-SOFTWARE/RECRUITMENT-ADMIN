@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 style="text-align: center; font-family: Arial Black, Helvetica, sans-serif;">
-                        GAFCONM
+                        <b>APPLICANT VERIFICATION PHASE</b>
                     </h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -79,238 +79,304 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="row">
-                                                <div class="container">
-                                                    <div>
-                                                        <h5 style="margin-top: 10px; color:red"><b>
-                                                                 COURSE SELECTED:
-                                                                {{ $applied_applicant->cause_offers }} / ENTRANCE: {{ $applied_applicant->entrance_type }}
+                                                 <div>
+                                                                    <h5 style="margin-top: 10px; color:red"><b>
+                                                                          ARM OF SERVICE SELECTED:
+                                                                            {{ $applied_applicant->arm_of_service }}  /  BRANCH SELECTED:
+                                                                            {{ $applied_applicant->branches->branch??'' }}
 
 
-                                                            </b>
-                                                        </h5>
-                                                        <span></span>
-                                                        <h5 class="mt-5"
-                                                            style="text-transform: uppercase; text-align:left; margin-left: 0.5cm">
-                                                            Biodata details</h5>
-                                                        <div class="row"
-                                                            style="margin-left: 0.5cm; margin-right: 0.5cm;">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <th>Surname</th>
-                                                                    <th>First Name</th>
-                                                                    <th>OtherNames</th>
-                                                                    <th>Marital Status</th>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td id="preview-surname">
-                                                                            {{ $applied_applicant->surname }}
-                                                                        </td>
-                                                                        <td id="preview-othernames">
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->first_name }}
-                                                                        </td>
-                                                                        <td id="preview-sex">
-                                                                            <b></b>
-                                                                           {{ $applied_applicant->other_names }}
-                                                                        </td>
-                                                                        <td id="preview-marital-status">
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->marital_status }}
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                                        </b>
+                                                                    </h5>
+                                                                    <span></span>
+                                                                    <h5 class="mt-5"
+                                                                        style="text-transform: uppercase; text-align:left; margin-left: 0.5cm">
+                                                                        Biodata details</h5>
+                                                                    <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-bordered">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Surname</th>
+                                                                                        <th>First Name</th>
+                                                                                        <th>Other Name(s)</th>
+                                                                                        <th>Sex</th>
+                                                                                        <th>Marital Status</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td id="preview-surname">
+                                                                                            {{ $applied_applicant->surname }}
+                                                                                        </td>
+                                                                                          <td id="preview-first">
+                                                                                            {{ $applied_applicant->first_name }}
+                                                                                        </td>
+                                                                                        <td id="preview-othernames">
+                                                                                            {{ $applied_applicant->other_names }}
+                                                                                        </td>
+                                                                                        <td id="preview-sex">
+                                                                                            {{ $applied_applicant->sex }}
+                                                                                        </td>
+                                                                                        <td id="preview-marital-status">
+                                                                                            {{ $applied_applicant->marital_status }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
 
-                                                        <div class="row"
-                                                            style="margin-left: 0.5cm; margin-right: 0.5cm;">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                     <th>Sex</th>
-                                                                    <th>Date of Birth</th>
-                                                                    <th>Contact</th>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                         <td id="preview-sex">
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->sex }}
-                                                                        </td>
-                                                                        <td id="preview-date-of-birth">
-                                                                            <b></b>
-                                                                            {{ \Carbon\Carbon::parse($applied_applicant->date_of_birth)->format('d M, Y') }}
-                                                                        </td>
-                                                                        <td id="preview-contact">
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->contact }}
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <div class="row"
-                                                            style="margin-left: 0.5cm; margin-right: 0.5cm;">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <th>Identity Type</th>
-                                                                    <th>Card Number</th>
-                                                                    <th>Email</th>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td id="preview-date-of-birth">
-                                                                            <b></b>
-                                                                             {{ $applied_applicant->identity_type }}
-                                                                        </td>
-                                                                        <td id="preview-contact">
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->national_identity_card }}
-                                                                        </td>
-                                                                        <td id="preview-email">
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->email }}
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                                    <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-bordered mb-0">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Date of Birth</th>
+                                                                                        <th>Mobile</th>
+                                                                                        <th>Email</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td id="preview-date-of-birth">
+                                                                                            {{ strtoupper(\Carbon\Carbon::parse($applied_applicant->date_of_birth)->format('d F Y')) }}
+                                                                                        </td>
+                                                                                        <td id="preview-contact">
+                                                                                            {{ $applied_applicant->contact }}
+                                                                                        </td>
+                                                                                        <td id="preview-email">
+                                                                                            {{ $applied_applicant->email }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
 
-                                                        <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <th>Residential Address</th>
-                                                                    <th>Language(s) Spoken </th>
 
-                                                                    <th>Sssce/Wassce Certifcate</th>
 
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td id="preview-residential-address">
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->residential_address }}
-                                                                        </td>
-                                                                        <td id="preview-languages">
-                                                                            <b></b>
-                                                                            @php
-                                                                                $languages = is_string(
-                                                                                    $applied_applicant->language,
-                                                                                )
-                                                                                    ? json_decode(
-                                                                                        $applied_applicant->language,
-                                                                                        true,
-                                                                                    )
-                                                                                    : $applied_applicant->language;
-                                                                            @endphp
-                                                                            {{ implode(', ', $languages ?? []) }}
-                                                                        </td>
+                                                                 <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-bordered mb-0">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Region</th>
+                                                                                        <th>District</th>
+                                                                                        <th>Home Town</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td id="preview-date-of-birth">
+                                                                                           {{ $applied_applicant->regions->region_name ??'' }}
+                                                                                        </td>
+                                                                                        <td id="preview-contact">
+                                                                                            {{ $applied_applicant->districts->district_name ??'' }}
+                                                                                        </td>
+                                                                                        <td id="preview-email">
+                                                                                            {{ $applied_applicant->home_town }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
 
-                                                                        <td id="wassce-file-preview">
-                                                                            {{-- @if (!empty($applied_applicant->wassce_certificate))
+                                                                     <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-bordered mb-0">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Identity Type</th>
+                                                                                        <th>Card Number</th>
 
-                                                                            Selected file:
-                                                                            <a href="{{ asset($applied_applicant->wassce_certificate) }}"
-                                                                                target="_blank">View PDF</a>
-                                                                        @endif --}}
+                                                                                         <th>Height</th>
+                                                                                        <th>Weight</th>
 
-                                                                         @if(!empty($applied_applicant->wassce_certificate))
-        @foreach(json_decode($applied_applicant->wassce_certificate) as $index => $file)
-            <div>
-                {{ $index + 1 }}.
-                <a href="{{ asset($file) }}" target="_blank">{{ basename($file) }}</a>
-            </div>
-        @endforeach
-    @endif
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
 
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                                                        <td id="preview-identity_type">
+                                                                                            {{ $applied_applicant->identity_type}}
+                                                                                        </td>
+                                                                                        <td id="preview-national_identity_card">
+                                                                                            {{ $applied_applicant->national_identity_card }}
+                                                                                        </td>
+                                                                                        <td id="preview-identity_type">
+                                                                                            {{ $applied_applicant->height}}
+                                                                                        </td>
+                                                                                        <td id="preview-national_identity_card">
+                                                                                            {{ $applied_applicant->weight}}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-bordered mb-0">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Residential Address</th>
+                                                                                        <th>Language(s) Spoken</th>
+                                                                                        <th>Sports Interest</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td id="preview-residential-address">
+                                                                                            {{ $applied_applicant->residential_address }}
+                                                                                        </td>
+                                                                                        <td id="preview-languages">
+                                                                                            @php
+                                                                                                $languages = is_string($applied_applicant->language)
+                                                                                                    ? json_decode($applied_applicant->language, true)
+                                                                                                    : $applied_applicant->language;
+                                                                                            @endphp
+                                                                                            {{ implode(', ', $languages ?? []) }}
+                                                                                        </td>
 
-                                                        <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <th>Birth Certificate</th>
+                                                                                        <td id="preview-sports-interest">
+                                                                                            @php
+                                                                                                $sports = is_string($applied_applicant->sports_interest)
+                                                                                                    ? json_decode($applied_applicant->sports_interest, true)
+                                                                                                    : $applied_applicant->sports_interest;
+                                                                                            @endphp
+                                                                                            {{ implode(', ', $sports ?? []) }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
 
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td id="birth_certificate">
-                                                                            @if (!empty($applied_applicant->birth_certificate))
 
-                                                                            Selected file:
-                                                                            <a href="{{ asset($applied_applicant->birth_certificate) }}"
-                                                                                target="_blank">View PDF</a>
-                                                                        @endif
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <h5 class="mt-5"
-                                                            style="text-transform: uppercase; text-align:left; margin-left: 0.5cm">
-                                                            Educational details</h5>
-                                                        <div class="row"
-                                                            style="margin-left: 0.5cm; margin-right: 0.5cm;">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <th>WASSCE Index Number</th>
-                                                                    <th>SHS Completion Year</th>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td id="wassce_index_number">
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->wassce_index_number }}
-                                                                        </td>
-                                                                        <td id="wassce_year_completion">
-                                                                            <b></b>
-                                                                            {{ \Carbon\Carbon::parse($applied_applicant->wassce_year_completion)->format('d M, Y') }}
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <div class="row"
-                                                            style="margin-left: 0.5cm; margin-right: 0.5cm;">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <th>Results Slip Number</th>
-                                                                    <th>School Name</th>
-                                                                    <th>Course Offered</th>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td id="preview-shs-completion-year">
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->wassce_serial_number }}
-                                                                        </td>
-                                                                        <td id="preview-shs-name">
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->name_of_secondary_school }}
-                                                                        </td>
-                                                                        <td>
-                                                                            <b></b>
-                                                                            {{ $applied_applicant->secondary_course_offered }}
-                                                                        </td>
 
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
-                                                            <table class="table table-bordered">
-                                                                <thead>
+                                                                    <h5 class="mt-5"
+                                                                        style="text-transform: uppercase; text-align:left; margin-left: 0.5cm">
+                                                                        Educational details</h5>
 
-                                                                    <th>Exams Type</th>
-                                                                    <th>WASSCE Subjects</th>
-                                                                    <th>Grades</th>
-                                                                    <th>Result slip Number</th>
-                                                                </thead>
-                                                                <tbody>
+
+                                                                    <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-bordered mb-0">
+                                                                                <thead>
+                                                                                    <tr>
+
+                                                                                        <th>WASSCE Index Number</th>
+                                                                                        <th>SHS Completion Year</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td id="wassce_index_number">
+                                                                                            {{ $applied_applicant->wassce_index_number }}
+                                                                                        </td>
+                                                                                        <td id="wassce_year_completion">
+                                                                                            {{ strtoupper(\Carbon\Carbon::parse($applied_applicant->wassce_year_completion)->format('d F Y')) }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row"
+                                                                        style="margin-left: 0.5cm; margin-right: 0.5cm;">
+                                                                        <table class="table table-bordered">
+                                                                            <thead>
+                                                                                <th>BECE Index Number</th>
+                                                                                <th>JHS Completion Year</th>
+                                                                                <th>WASSCE Index Number</th>
+                                                                                <th>SHS Completion Year</th>
+                                                                            </thead>
+                                                                            <tbody>
                                                                                 <tr>
+                                                                                    <td id="preview-bece-index">
+                                                                                        <b></b>
+                                                                                        {{ $applied_applicant->bece_index_number }}
+                                                                                    </td>
+                                                                                    <td id="preview-jhs-completion-year">
+                                                                                        <b></b>
+                                                                                       {{ strtoupper(\Carbon\Carbon::parse($applied_applicant->bece_year_completion)->format('d F Y')) }}
+
+                                                                                    </td>
+                                                                                    <td id="wassce_index_number">
+                                                                                        <b></b>
+                                                                                        {{ $applied_applicant->wassce_index_number }}
+                                                                                    </td>
+                                                                                    <td id="wassce_year_completion">
+                                                                                        <b></b>
+                                                                                       {{ strtoupper(\Carbon\Carbon::parse($applied_applicant->wassce_year_completion)->format('d F Y')) }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+
+                                                                    <div class="row"
+                                                                        style="margin-left: 0.5cm; margin-right: 0.5cm;">
+                                                                        <table class="table table-bordered">
+                                                                            <thead>
+                                                                                <th>BECE Subjects</th>
+                                                                                <th>Grades</th>
+                                                                                <th>Exams Type</th>
+                                                                                <th>WASSCE Subjects</th>
+                                                                                <th>Grades</th>
+                                                                                <th>Result slip Number</th>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <b>
+                                                                                            <span id="bece_english" class="form-control col-sm-12 required">
+                                                                                                {{ $applied_applicant->bece_english }}
+                                                                                            </span>
+                                                                                            <span id="bece_maths" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_mathematics }}
+                                                                                            </span>
+                                                                                            <span id="bece_sub1" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_subject_three }}
+                                                                                            </span>
+                                                                                            <span id="bece_sub2" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_subject_four }}
+                                                                                            </span>
+                                                                                            <span id="bece_sub3" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_subject_five }}
+                                                                                            </span>
+                                                                                            <span id="bece_sub4" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_subject_six }}
+                                                                                            </span>
+                                                                                        </b>
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                        <b>
+                                                                                            <span id="bece_english_grade" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_subject_english_grade }}
+                                                                                            </span>
+                                                                                            <span id="bece_maths_grade" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_subject_maths_grade }}
+                                                                                            </span>
+                                                                                            <span id="bece_sub1" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_subject_three_grade }}
+                                                                                            </span>
+                                                                                            <span id="bece_sub2" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_subject_four_grade }}
+                                                                                            </span>
+                                                                                            <span id="bece_sub3" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_subject_five_grade }}
+                                                                                            </span>
+                                                                                            <span id="bece_sub4" class="form-control required">
+                                                                                                {{ $applied_applicant->bece_subject_six_grade }}
+                                                                                            </span>
+                                                                                        </b>
+                                                                                    </td>
+
+
                                                                                     <td>
                                                                                         <b>
                                                                                             <span id="exam_type_one" class="form-control required">
@@ -355,6 +421,7 @@
                                                                                             </span>
                                                                                         </b>
                                                                                     </td>
+
                                                                                     <td>
                                                                                         <b>
                                                                                             <span id="wassce_english_grade" class="form-control">
@@ -401,46 +468,28 @@
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
-                                                            </table>
-                                                        </div>
-                                                          @if($applied_applicant->entrance_type === 'TOP UP')
-                                                            <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
-                                                                 <table class="table table-bordered">
-                                                                       <thead>
-                                                                           <tr>
-                                                                              <th>INSTITUTION</th>
-                                                                              <th>NMC</th>
-                                                                              <th>TRANSCRIPT</th>
-                                                                           </tr>
-                                                                        </thead>
-                                                                <tbody>
-                                                               <tr>
-                                                                      <td><b>{{ $applied_applicant->institution }}</b></td>
-                                                                       <td id="results_certificate">
-                                                                            @if (!empty($applied_applicant->results_certificate))
+                                                                        </table>
+                                                                    </div>
+                                                                    @if($applied_applicant->entrance_type === 'TOP UP')
+                                                                        <div class="row" style="margin-left: 0.5cm; margin-right: 0.5cm;">
+                                                                            <table class="table table-bordered">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>INSTITUTION</th>
 
-                                                                            Selected file:
-                                                                            <a href="{{ asset($applied_applicant->results_certificate) }}"
-                                                                                target="_blank">View PDF</a>
-                                                                        @endif
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td  colspan="3"><b>{{ $applied_applicant->institution }}</b></td>
 
-                                                                        </td>
-                                                                       <td id="transcript">
-                                                                            @if (!empty($applied_applicant->transcript))
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
 
-                                                                            Selected file:
-                                                                            <a href="{{ asset($applied_applicant->transcript) }}"
-                                                                                target="_blank">View PDF</a>
-                                                                        @endif
-                                                                        </td>
-
-                                                                 </tr>
-                                                             </tbody>
-                                                         </table>
-                                                       </div>
-                                                    @endif
-
-                                                    </div>
+                                                                    @endif
+                                                                </div>
                                                     <div class="col-md-12">
                                                         <div style="">
                                                             <div class="form-group row">

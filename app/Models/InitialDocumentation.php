@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\UuidTrait;
 use App\Models\Traits\SaveToUpper;
 
-class Medical extends Model
+class InitialDocumentation extends Model
 {
     use HasFactory;
     use UuidTrait;
@@ -20,14 +20,10 @@ class Medical extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'applicant_id',
-        'medical_status',
-        'medical_remarks',
+        'applicant_id' => 'unsignedBigInteger',
+        'initial_documentation_status' => 'string',
+        'initial_documentation_marks' => 'text',
     ];
-    public function applicant()
-    {
-        return $this->belongsTo(Applicant::class);
-    }
 
     /**
      * The attributes that should be cast.

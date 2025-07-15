@@ -1,10 +1,9 @@
 <?php
-
 declare(strict_types=1);
-
 namespace App\Http\Controllers\Front\Phases;
 
 use App\Http\Controllers\Controller;
+
 use App\Models\Applicant;
 use App\Models\Aptitude;
 use App\Models\Interview;
@@ -19,10 +18,9 @@ use App\Mail\QualifiedApplicantNotification;
 use App\Models\ResultVerification;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
-
-class AptitudeController extends Controller
+class TradetestController extends Controller
 {
-    public function applicant_aptitude()
+ public function applicant_aptitude()
     {
         $data = Applicant::get();
         return view('admin.pages.phases.aptitude.report', compact('data'));

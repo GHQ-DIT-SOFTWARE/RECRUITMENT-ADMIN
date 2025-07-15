@@ -39,94 +39,36 @@
                 </div>
             </div>
 
-            {{-- <div class="card user-profile-list">
+            <div class="card user-profile-list">
                 <div class="col-md-12 border-right">
                     <div class="card-body">
-                        <form id="filter-form">
+                     <form id="filter-form">
                             @csrf
                             <div class="row filter-row">
-                                <div class="col-sm-6 col-md-3">
+                                <div class="col-sm-10 col-md-10">
                                     <div class="form-group form-focus">
-                                        <select class="form-control" name="cause_offers">
-                                            <option value>SELECT COURSE</option>
-                                            @foreach ($data->unique('cause_offers') as $arm)
-                                                <option value="{{ $arm->cause_offers }}">
-                                                    {{ $arm->cause_offers }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-3">
-                                    <div class="form-group form-focus">
-                                        <input type="text" class="form-control floating" name="applicant_serial_number"
-                                            placeholder="Applicant Serial Number">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-3">
-                                    <div class="form-group form-focus">
-                                        <input type="text" class="form-control floating" name="surname"
-                                            placeholder="SURNAME">
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-3">
-                                    <div class="form-group form-focus">
-                                        <input type="text" class="form-control floating" name="other_names"
-                                            placeholder="FIRST NAME">
+                                        <label for="search_query" style="font-size: 14px; color: #f80404;">
+                                            You can search by GAF NUMBER, name, branch, commission type, etc.
+                                        </label>
+                                        <input type="text" class="form-control floating" name="search_query"
+                                            placeholder="Search..."
+                                            style="border-radius: 50px; padding: 10px 20px; border: 1px solid #ccc; box-shadow: none; outline: none;">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row filter-row">
-                                <div class="col-sm-6 col-md-3">
-                                    <div class="form-group form-focus">
-                                        <select class="form-control select2" name="sex">
-                                            <option value>SELECT GENDER</option>
-                                            @foreach ($data->unique('sex') as $gender)
-                                                <option value="{{ $gender->sex }}">
-                                                    {{ $gender->sex }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-3">
-                                    <div class="form-group form-focus">
-                                        <select class="form-control select2" name="qualification">
-                                            <option value>QUALIFICATION STATUS</option>
-                                            @foreach ($data->unique('qualification') as $status)
-                                                <option value="{{ $status->qualification }}">
-                                                    {{ $status->qualification }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                 <div class="col-sm-6 col-md-3">
-                                    <div class="form-group form-focus">
-                                        <select class="form-control select2" name="entrance_type">
-                                            <option value>ENTRANCE TYPE</option>
-                                            @foreach ($data->unique('entrance_type') as $list)
-                                                <option value="{{ $list->entrance_type }}">
-                                                    {{ $list->entrance_type }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-3">
-                                    <button type="sumit" class="btn btn-primary btn-block">Filter</button>
+                                <div class="col-sm-2 col-md-3">
+                                    <button type="submit" class="btn btn-primary btn-block">Search</button>
                                 </div>
                             </div>
                         </form>
                     </div>
 
                 </div>
-            </div> --}}
+            </div>
 
-            
+
             <div class="card">
                 <div class="card-body">
                     <div class="row align-items-center m-l-0">
@@ -149,12 +91,12 @@
                                         </th>
                                          <th>STATUS</th>
                                         <th>SERIAL NUMBER</th>
-                                        <th>ENTRANCE TYPE</th>
+                                        <th>BRANCH</th>
+                                        <th>TRADE TYPE</th>
                                         <th>SURNAME</th>
                                         <th>FIRST NAME</th>
                                         <th>OTHERNAMES</th>
                                         <th>GENDER</th>
-                                        <th>COURSE</th>
                                         <th>MOBILE</th>
                                         <th>ACTION</th>
                                     </tr>
@@ -228,9 +170,13 @@
                         data: 'applicant_serial_number',
                         name: 'applicant_serial_number'
                     },
+                     {
+                        data:'branch',
+                        name:'branch'
+                    },
                     {
-                        data:'entrance_type',
-                        name:'entrance_type'
+                        data:'trade_type',
+                        name:'trade_type'
                     },
                     {
                         data: 'surname',
@@ -247,10 +193,6 @@
                     {
                         data: 'sex',
                         name: 'sex'
-                    },
-                    {
-                        data: 'cause_offers',
-                        name: 'cause_offers'
                     },
                     {
                         data: 'contact',

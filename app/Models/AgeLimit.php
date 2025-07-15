@@ -1,11 +1,14 @@
 <?php
-declare (strict_types = 1);
+
+declare(strict_types=1);
+
 namespace App\Models;
 
 use App\Models\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
+
 class AgeLimit extends Model implements Auditable
 {
     use HasFactory;
@@ -17,7 +20,7 @@ class AgeLimit extends Model implements Auditable
      * @var array<int, string>
      */
     protected $fillable = [
-        'commission_type',
+        'trade_type',
         'agelimit_date',
     ];
 
@@ -26,7 +29,5 @@ class AgeLimit extends Model implements Auditable
      *
      * @var array<string, string>
      */
-    protected $casts = [
-
-    ];
+    protected $casts = [];
 }

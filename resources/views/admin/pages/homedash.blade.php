@@ -27,12 +27,12 @@ DASHBOARD
                 behavior="scroll"
                 direction="left"
                 scrollamount="6"
-                style="background-color:#adb5bd; color: rgb(223, 13, 13); font-weight: bold; font-size: 2rem; padding: 10px;">
+                style="background-color:#adb5bd; color: rgb(14, 12, 12); font-weight: bold; font-size: 2rem; padding: 10px;">
                 @auth {{ Auth::user()->name }} @endauth,WELCOME TO GAF RECRUITMENT ADMIN PORTAL.
             </marquee>
 
             <div style="display: flex; justify-content: center; align-items: center;">
-                <img src="{{ asset('gafnursingandmidfery.png') }}" style="height: 450px; width: 350px;margin-top: 70px;" alt="" class="img-fluid">
+                <img src="{{ asset('recruitment_admin.jpg') }}"  alt="" class="img-fluid">
             </div>
         </div>
 

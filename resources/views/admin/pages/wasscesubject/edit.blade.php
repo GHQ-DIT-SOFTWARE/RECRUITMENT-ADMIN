@@ -61,6 +61,12 @@
     <option value="AGRICULTURAL SCIENCE" {{ $wasscesubject->main_course == 'AGRICULTURAL SCIENCE' ? 'selected' : '' }}>
         AGRICULTURAL SCIENCE
     </option>
+    <option value="VISUAL ARTS" {{ $wasscesubject->main_course == 'VISUAL ARTS' ? 'selected' : '' }}>
+        VISUAL ARTS
+    </option>
+    <option value="BUSINESS" {{ $wasscesubject->main_course == 'BUSINESS' ? 'selected' : '' }}>
+        BUSINESS
+    </option>
 </select>
 
                                         @error('wasscesubjects')

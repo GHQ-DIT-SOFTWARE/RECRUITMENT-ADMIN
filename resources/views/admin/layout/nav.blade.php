@@ -26,69 +26,56 @@
                     </li>
                 @role('Admission')
                 <li class="nav-item pcoded-menu-caption">
-                    <label class="fs-4">Recruitment Panel</label>
+                    <label class="fs-8">Recruitment Panel</label>
                 </li>
                   <li class="nav-item pcoded-hasmenu {{ Route::is('report.report-generation', 'document.master-filter-documentation', 'view-index',
                             'subject.wassce-subject-index',
                             'results.wassce-results-index',
                             'course.courses-index') ? 'active' : '' }}">
                       <a href="#!" class="nav-link">
-    <span class="pcoded-micon"><i class="feather icon-user-plus"></i></span>
-    <span class="pcoded-mtext">Recruitment Process</span>
-</a>
+                      <span class="pcoded-micon"><i class="feather icon-user-plus"></i></span>
+                      <span class="pcoded-mtext">Recruitment Process</span>
+                    </a>
 
-                <ul class="pcoded-submenu">
+                                    <ul class="pcoded-submenu">
 
-                                        <li class="{{ Route::is('report.report-generation') ? 'active' : '' }}">
+                                        {{-- <li class="{{ Route::is('report.report-generation') ? 'active' : '' }}">
                                             <a href="{{ route('report.report-generation') }}">Verify Results</a>
+                                        </li> --}}
+
+                                          <li class="{{ Route::is('report.report-generation') ? 'active' : '' }}">
+                                            <a href="{{ route('report.report-generation') }}">Initial Documentation</a>
+                                        </li>
+                                        <li class="{{ Route::is('bodyselection.applicant-body-selection') ? 'active' : '' }}">
+                                            <a href="{{ route('bodyselection.applicant-body-selection') }}">Body Selection</a>
+                                        </li>
+                                          <li class="{{ Route::is('report.report-generation') ? 'active' : '' }}">
+                                            <a href="{{ route('report.report-generation') }}">Trade Test</a>
                                         </li>
 
+
                                     <li class="{{ Route::is('test.applicant-aptitude-test') ? 'active' : '' }}">
-                                        <a href="{{ route('test.applicant-aptitude-test') }}">Aptitude</a>
+                                        <a href="{{ route('test.applicant-aptitude-test') }}">Documentation</a>
                                     </li>
 
-                                <li class="{{ Route::is('test.applicant-interview') ? 'active' : '' }}">
-                                    <a href="{{ route('test.applicant-interview') }}">Interview</a>
-                                </li>
-                                <li class="{{ Route::is('reprint-admission-letter') ? 'active' : '' }}"><a
-                                href="{{ route('reprint-admission-letter') }}">Admission Letter(Reprint)</a></li>
-                             {{-- <li class="nav-item pcoded-hasmenu">
-								<a href="#!" class="nav-link "><span class="pcoded-mtext">Notifications</span></a>
-								<ul class="pcoded-submenu">
-									<li class="{{ Route::is('document.master-filter-documentation') ? 'active' : '' }}"><a href="{{ route('document.master-filter-documentation') }}"">Results</a></li>
-									<li  class="{{ Route::is('test.master-filter-aptitude') ? 'active' : '' }}"><a href="{{ route('test.master-filter-aptitude') }}">Aptitude</a></li>
-                                    <li class="{{ Route::is('test.master-filter-interview') ? 'active' : '' }}"><a href="{{ route('test.master-filter-interview') }}">Interview</a></li>
-								</ul>
-							</li> --}}
+                                      <li class="{{ Route::is('test.applicant-medical') ? 'active' : '' }}">
+                                            <a href="{{ route('test.applicant-medical') }}">Medicals</a>
+                                        </li>
+                                    <li class="{{ Route::is('test.applicant-vetting') ? 'active' : '' }}">
+                                            <a href="{{ route('test.applicant-vetting') }}">Filter</a>
+                                        </li>
 
-                            <li class="{{ Route::is('results.bece-results-index') ? 'active' : '' }}"><a
-                                href="{{ route('results.bece-results-index') }}">Bece Results</a></li>
-                        <li class="{{ Route::is('subject.bece-subject-index') ? 'active' : '' }}"><a
-                                href="{{ route('subject.bece-subject-index') }}">Bece Subjects</a></li>
-                        <li class="{{ Route::is('results.wassce-results-index') ? 'active' : '' }}"><a
-                                href="{{ route('results.wassce-results-index') }}">Wassce Results</a></li>
-                        <li class="{{ Route::is('subject.wassce-subject-index') ? 'active' : '' }}"><a
-                                href="{{ route('subject.wassce-subject-index') }}">Wassce Subjects</a></li>
-                        <li class="{{ Route::is('arm.arm-of-service') ? 'active' : '' }}"><a
-                                href="{{ route('arm.arm-of-service') }}">Courses</a></li>
-                                <li class="{{ Route::is('bran.branch-index') ? 'active' : '' }}"><a
-                                    href="{{ route('bran.branch-index') }}">Branch</a></li>
+                                    <li class="{{ Route::is('report.report-generation') ? 'active' : '' }}">
+                                            <a href="{{ route('report.report-generation') }}">Receipt of Applicant Letter</a>
 
 
-                            <li class="{{ Route::is('branch-sub-index') ? 'active' : '' }}"><a
-                                    href="{{ route('branch-sub-index') }}">Sub Branches</a></li>
-                                    <li class="{{ Route::is('branch-sub-sub-index') ? 'active' : '' }}"><a
-                                    href="{{ route('branch-sub-sub-index') }}">Sub Sub Branches</a></li>
 
-
-                            {{-- <li class="{{ Route::is('course.courses-index') ? 'active' : '' }}"><a
-                                    href="{{ route('course.courses-index') }}">Courses</a></li> --}}
 
                 </ul>
         </li>
 
           <li class="nav-item pcoded-menu-caption">
-                    <label class="fs-4">Notify Applicant Panel</label>
+                    <label class="fs-8">Notify Applicant Panel</label>
                 </li>
         <li class="nav-item pcoded-hasmenu {{ Route::is('document.master-filter-documentation', 'test.master-filter-aptitude', 'test.master-filter-interview') ? 'active' : '' }}">
            <a href="#">
@@ -110,6 +97,42 @@
         </ul>
         </li>
         @endrole
+
+
+            <li class="nav-item pcoded-menu-caption">
+                    <label class="fs-8">System Settings</label>
+                </li>
+        <li class="nav-item pcoded-hasmenu">
+           <a href="#">
+    <i class="feather icon-book"></i>
+    <span class="pcoded-mtext">Settings</span>
+</a>
+       <ul class="pcoded-submenu">
+
+                                <li class="{{ Route::is('reprint-admission-letter') ? 'active' : '' }}"><a
+                                href="{{ route('reprint-admission-letter') }}">Reprint Summary</a></li>
+
+                            <li class="{{ Route::is('set.agelimit-index') ? 'active' : '' }}"><a
+                                    href="{{ route('set.agelimit-index') }}">Age Limit</a></li>
+                            <li class="{{ Route::is('results.bece-results-index') ? 'active' : '' }}"><a
+                                href="{{ route('results.bece-results-index') }}">Bece Results</a></li>
+                        <li class="{{ Route::is('subject.bece-subject-index') ? 'active' : '' }}"><a
+                                href="{{ route('subject.bece-subject-index') }}">Bece Subjects</a></li>
+                        <li class="{{ Route::is('results.wassce-results-index') ? 'active' : '' }}"><a
+                                href="{{ route('results.wassce-results-index') }}">Wassce Results</a></li>
+                        <li class="{{ Route::is('subject.wassce-subject-index') ? 'active' : '' }}"><a
+                                href="{{ route('subject.wassce-subject-index') }}">Wassce Subjects</a></li>
+
+                                <li class="{{ Route::is('bran.branch-index') ? 'active' : '' }}"><a
+                                    href="{{ route('bran.branch-index') }}">Branch</a></li>
+
+
+                            <li class="{{ Route::is('branch-sub-index') ? 'active' : '' }}"><a
+                                    href="{{ route('branch-sub-index') }}">Sub Branches</a></li>
+                                    <li class="{{ Route::is('branch-sub-sub-index') ? 'active' : '' }}"><a
+                                    href="{{ route('branch-sub-sub-index') }}">Sub Sub Branches</a></li>
+        </ul>
+        </li>
 
 
 

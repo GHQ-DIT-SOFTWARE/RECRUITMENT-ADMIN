@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\UuidTrait;
 use App\Models\Traits\SaveToUpper;
 
-class Medical extends Model
+class TradeTest extends Model
 {
     use HasFactory;
     use UuidTrait;
@@ -21,13 +21,9 @@ class Medical extends Model
      */
     protected $fillable = [
         'applicant_id',
-        'medical_status',
-        'medical_remarks',
+        'trade_test_status',
+        'trade_test_marks',
     ];
-    public function applicant()
-    {
-        return $this->belongsTo(Applicant::class);
-    }
 
     /**
      * The attributes that should be cast.
